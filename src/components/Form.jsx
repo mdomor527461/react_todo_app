@@ -1,12 +1,12 @@
 import { useState } from "react";
 import TodoItems from "./TodoItem";
 export default function Form({addTodo}) {
-  const [todo, setTodo] = useState("");
+  const [todo, setTodo] = useState({name : "",status : false});
   function handleSubmit(e) {
     e.preventDefault();
     // console.log(todo);
-    addTodo(todo);
-    setTodo("");
+    addTodo({todo});
+    setTodo({name : "",status : false});
   }
 
   return (
@@ -18,8 +18,8 @@ export default function Form({addTodo}) {
         <input
           type="text"
           name="task"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
+          value={todo.name}
+          onChange={(e) => setTodo({name : e.target.value , status :  false})}
           className="task-input"
         />
         <button className="task-add-button">Add</button>

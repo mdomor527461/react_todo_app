@@ -3,9 +3,9 @@ import Form from "./Form";
 import TodoItems from "./TodoItem";
 export default function Todo(){
     const[todos, setTodos] = useState([]);
-    const addTodo = (todo) => {
-        // console.log("Adding todo: ", todo);
-        setTodos([...todos, todo]);
+    const addTodo = ({todo}) => {
+        console.log("Adding todo: ", todo);
+        // setTodos([...todos, todo]);
         // console.log("Todos: ", todos);
     }
      
