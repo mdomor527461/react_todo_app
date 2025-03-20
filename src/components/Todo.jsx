@@ -5,7 +5,12 @@ import Footer from "./Footer";
 export default function Todo(){
     const[todos, setTodos] = useState([]);
     const addTodo = ({todo}) => {
-        // console.log("Adding todo: ", todo);
+        const isDuplicate = todos.some(existingTodo => existingTodo.name === todo.name);
+
+        if (isDuplicate) {
+            alert("Task already exists");
+            return;
+        }
         setTodos([...todos, { name: todo.name, status: todo.status }]);
         // console.log("Todos: ", todos);
     }
